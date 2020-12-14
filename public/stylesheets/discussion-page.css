@@ -1,0 +1,272 @@
+/* this css file controls the format of discussion-related pages */
+
+@import "general.css";
+
+/* title of main thread */
+h3 {
+    font-size: 30px;
+    margin-left: 50px;
+}
+
+/* metadata of main thread */
+h4.main {
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 50px;
+}
+
+/* metadata of reply */
+h4.reply {
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 0;
+    margin-left: 75px;
+    margin-top: 8px;
+    max-width: 800px;
+    padding: 20px;
+    width: 700px;
+}
+
+/* content of main thread */
+h5.main {
+    background-color: white;
+    border-radius: 15px 15px 15px 15px;
+    color: black;
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: 50px;
+    max-width: 800px;
+    opacity: 95%;
+    padding: 20px;
+}
+
+/* content of reply */
+h5.reply {
+    background-color: white;
+    border-radius: 15px 15px 15px 15px;
+    color: black;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 8px;
+    margin-left: 150px;
+    margin-top: -20px;
+    max-width: 800px;
+    opacity: 90%;
+    padding: 20px;
+    width: 500px;
+}
+
+a {
+    text-decoration: none;
+}
+
+submit {
+    position: relative;
+    right: 50px;
+}
+
+button {
+    background: lightyellow;
+    border: none;
+    box-shadow: 1px 1px 1px #34495e;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 8px;
+    margin-left: 55px;
+    margin-top: 8px;
+    opacity: 75%;
+}
+
+/* the button direct to the new enquiry page */
+button_new {
+    background: #34495e;
+    border-radius: 15px 15px 15px 15px;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 900px;
+    opacity: 95%;
+    padding: 10px;
+}
+
+button_new:hover{
+    background: grey;
+}
+
+/* the green block holds one thread and all replies */
+section {
+    background: #34495e;
+    border-radius: 15px 15px 15px 15px;
+    margin: 20px 80px 0 80px;
+    max-width: 1100px;
+    min-height: 200px;
+    opacity: 95%;
+    overflow-wrap: break-word;
+    padding: 3px;
+}
+
+/* like button */
+button.like {
+    background-color: white;
+    border-radius: 15px 15px 15px 15px;
+    border-style: solid;
+    box-shadow: none;
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    opacity: 100%;
+}
+
+/* reply button */
+button.reply {
+    background-color: white;
+    border-radius: 15px 15px 15px 15px;
+    border-style: solid;
+    box-shadow: none;
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    opacity: 100%;
+}
+
+/* control the reply and like image */
+img.reply-like{
+    height: 20px;
+    margin-right: 2px;
+    opacity: 100%;
+    width: 20px;
+}
+
+/* put the like and reply button on the same line */
+#like_and_reply {
+    display: flex;
+    text-align:center;
+}
+
+#like_and_reply > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* like button */
+button.like {
+    font-size: 20px;
+    height: 40px;
+    margin: 10.5px 0 0 20px;
+}
+
+/* reply button */
+button.reply {
+    font-size: 20px;
+    height: 40px;
+    margin: 10.5px 0 0 20px;
+}
+
+/* the reply content */
+input#reply {
+    border-radius: 15px 15px 15px 15px;
+    border-style: solid;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-left: 75px;
+    min-height: 40px;
+    min-width: 550px;
+    overflow-wrap: break-word;
+    padding: 10px;
+}
+
+/* label of title in the new enquiry page */
+label.title {
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+/* label of content in the new enquiry page */
+label.content {
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+/* the green background box for new enquiry page */
+section.new_enquiry{
+    align-content: flex-start;
+    border-radius: 15px 15px 15px 15px;
+    font-size: 25px;
+    margin-left: 80px;
+    margin-top: 40px;
+    min-height: 300px;
+    min-width: 1000px;
+    opacity: 90%;
+    padding: 10px;
+    width: 850px;
+}
+/* title input box in the new enquiry page */
+input#title {
+    border-radius: 15px 15px 15px 15px;
+    border-style: solid;
+    font-size: 20px;
+    min-height: 40px;
+    min-width: 550px;
+    overflow-wrap: break-word;
+    padding: 10px;
+}
+
+/* content input box in the new enquiry page */
+input#content {
+    border-radius: 15px 15px 15px 15px;
+    border-style: solid;
+    font-size: 20px;
+    margin-left: 40px;
+    min-height: 300px;
+    min-width: 850px;
+    overflow-wrap: break-word;
+    padding: 10px;
+    vertical-align: top;
+}
+
+/* submit button */
+button.submit {
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 30px;
+}
+
+button.delete_reply{
+    background-color: white;
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 700px;
+    margin-top: -60px;
+    opacity: 100%;
+    padding: 10px;
+    position: absolute;
+}
+
+button.delete_post{
+    background-color: white;
+    border-radius: 15px 15px 15px 15px;
+    margin: 0 0 0 75px;
+    opacity: 100%;
+    padding: 10px;
+}
+
+img.avatar{
+    margin-left: 0px;
+    float: left;
+    border-radius: 24px;
+    margin-top: 3px;
+}
+
+.item-date{
+    margin-left: 50px;
+    margin-top: -30px;
+}
+
+.reply-date{
+    margin-left: 150px;
+}
+
+a.AuthorName{
+    color: white;
+    margin-top: 5px;
+    position: absolute;
+}

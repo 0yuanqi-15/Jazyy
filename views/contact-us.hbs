@@ -1,0 +1,81 @@
+<!-- reformed nav bar start -->
+<div style="position: sticky; top: 0; z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li>
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myFolio
+            </a>
+        </li>
+        <li>
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Forum
+            </a>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    console.log(cookiename.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<div id="section1">
+    <div class="details_right">
+        <br><br><br><br><br>
+        <div class="bold">Great to hear ya!</div>
+        <br>
+        Suggestions, complaints, wanna join our developers' family... Click buttons below!
+        <br><br>
+        <a href="mailto:anning@student.unimelb.edu.au" style="text-decoration: none; color: black;">
+            <i class="fas fa-envelope"></i> Email a Specialist
+        </a>
+        <br><br>
+        <a href="https://www.unimelb.edu.au/" style="text-decoration: none; color: black;">
+            <i class="fas fa-university"></i> Visit our HQ
+        </a>
+        <br><br>
+        <a href="tel:+61404470007" style="text-decoration: none; color: orangered;">
+            <i class="fas fa-phone-square-alt"></i> Emergency
+        </a>
+    </div>
+</div>

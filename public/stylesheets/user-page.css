@@ -1,0 +1,204 @@
+/* this css file controls the format of user-related pages */
+
+@import "general.css";
+h1{
+    margin-bottom: -60px;
+}
+/* subtitle of the page */
+h2{
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+}
+
+/* admin content, hide by default */
+h3{
+    text-align: right;
+}
+
+a {
+    color: #00B7FF;
+    text-decoration: none;
+}
+
+/* login panel */
+section {
+    background: #34495e;
+    border-style: dashed;
+    margin: 80px auto;
+    min-height: 400px;
+    opacity: 90%;
+    padding: 10px;
+    text-align: center;
+    width: 800px;
+}
+
+/* show or hide password */
+.showpw{
+    cursor: pointer;
+    font-size: 25px;
+    width: 60px;
+}
+
+hide {
+    cursor: pointer;
+    font-size: 25px;
+}
+
+/* input field in login panel */
+label_login {
+    text-align: center;
+}
+
+input {
+    font: inherit;
+
+    min-width: 510px;
+}
+
+button {
+    background: lightyellow;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 1px #34495e;
+    color: #34495e;
+    cursor: pointer;
+    font: inherit;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 8px;
+    opacity: 75%;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+button:hover {
+    color: #34495e;
+}
+
+form {
+    alignment: center;
+    font-size: 25px;
+}
+
+article {
+    text-align: center;
+}
+
+usercentre_h2 {
+    font-size: 40px;
+}
+
+usercentre_h3 {
+    font-size: 20px;
+}
+
+.logout {
+    min-width: 300px;
+}
+
+.manage{
+    min-width: 300px;
+}
+
+/* navigating users after they login */
+.forum {
+    background-color: white;
+    border-color: #34495e;
+    border-style: solid;
+    color: #34495e;
+    /*margin-left: 250px;*/
+    /*margin-top: 40px;*/
+    object-fit: scale-down;
+    opacity: 85%;
+    text-align: center;
+    width: 400px;
+    margin-right: 10px;
+}
+
+.go_forum {
+    background-color: #34495e;
+    opacity: 100%;
+}
+
+.folio {
+    background-color: #34495e;
+    border-color: white;
+    border-style: solid;
+    /*margin-left: 800px;*/
+    /*margin-top: 40px;*/
+    object-fit: scale-down;
+    opacity: 90%;
+    text-align: center;
+    width: 400px;
+}
+
+.go_folio {
+
+    background-color: white;
+    opacity: 100%;
+}
+
+.centered {
+    text-align: center;
+}
+
+h3.update{
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button.delete{
+    align-content: center;
+    background-color: #f08080;
+    min-width: 300px;
+    opacity: 100%;
+}
+
+monkey {
+    position: absolute;
+    display: inline;
+}
+
+
+
+.sign-up-block {
+     max-width: 80%;
+     min-width: 80%;
+     padding: 50px;
+     text-align: left;
+ }
+
+.text {
+    display: inline;
+}
+
+#fromTx{
+    display: inline;
+}
+
+.avatar-pic{
+    padding-left: 40%;
+}
+
+section.update{
+    text-align: center;
+}
+
+div.head-p img{
+    position: absolute;
+    margin-top: -80px;
+}
+
+div.avatar-pic{
+    text-align: center;
+}
+
+.input_signup{
+    float: right;
+    margin-left: auto;
+    margin-right: 10px;
+}
+

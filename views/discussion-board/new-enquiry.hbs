@@ -1,0 +1,81 @@
+<!-- reformed nav bar start -->
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li>
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myFolio
+            </a>
+        </li>
+        <li>
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Forum
+            </a>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    console.log(cookiename.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<h1>Discussion Board</h1>
+<h2>Have doubts? Submit a new enquiry!</h2>
+
+<body>
+    <section class="new_enquiry">
+        <br>
+        <form action="/discussion-board/new-enquiry/submit" method="post">
+            <div class="title">
+                <label class="title" for="title">Title of Discussion</label>
+                <input type="text" id="title" name="title" placeholder="Title">
+            </div>
+            <br>
+            <div class="paragraph">
+                <label class = "content" for="content">Enquiry Content</label><br>
+                <br>
+                <input type="text" id="content" name="content" placeholder="Type in your Content from here">
+            </div>
+            <button class="submit" type="submit">Submit&nbsp;</button>
+        </form>
+    </section>
+</body>

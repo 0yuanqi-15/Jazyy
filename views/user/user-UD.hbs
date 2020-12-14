@@ -1,0 +1,184 @@
+<div style="position: sticky;top:0px;z-index: 99">
+
+    <ul>
+        <li><a href="/contact-us">
+            <i class="fas fa-info-circle"></i>
+            Contact Us
+        </a>
+        </li>
+        <li><a href="/myfolio">
+            <i class="fas fa-address-card"></i>
+            myFolio
+        </a>
+        </li>
+        <li><a href="/discussion-board">
+            <i class="fas fa-comments"></i>
+            Forum
+        </a>
+        </li>
+        <li class="dropdown"><a class="dropbtn" href="/user">
+            <i class="fas fa-user-cog"></i>
+            User Center</a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">Account Management</a>
+                <a href="/user/logout">Log out</a>
+            </div>
+        </li>
+        <li><a href="/">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        </li>
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+
+<h1>
+    Something wrong? Let us know...
+</h1>
+
+<br>
+<br>
+<section class="update">
+    <h3 class = update>
+        Change My Password
+    </h3>
+
+    <form action="/user/sign-up/updatePassword" method="post">
+        <div class="input">
+            <input type="hidden" id="id" name="id" value = {{this._id}}>
+            <input type="hidden" name="photo" value = {{photo}}>
+        </div>
+
+        <div class="input">
+            <label for="username">
+                New Password
+            </label>
+            <br>
+
+            <input type="password" id="inputPassword" name="password" placeholder="Please enter your new password~">
+        </div>
+
+        <br>
+
+        <div class="input">
+            <label for="password">
+                Confirm New Password
+            </label>
+
+            <br>
+
+            <input type="password" id="inputPassword" name="confirmPassword" placeholder="Please enter your new password again~">
+        </div>
+
+        <div>
+            <article class="message">
+                <div> {{message}} </div>
+            </article>
+        </div>
+
+        <br>
+
+        <button class = "update" type="submit">
+            Confirm
+        </button>
+    </form>
+</section>
+
+<section class="update">
+    <h3 class = update>
+        Change My Avatar
+    </h3>
+
+    <form action="/user/sign-up/updateAvatar" method="post">
+        <div class="input">
+            <input type="hidden" id="id" name="id" value = {{this._id}}>
+        </div>
+
+        <div id="fromTx">
+            <input type="file" class="file"  name="avatar" id="avatar">
+        </div>
+        <br><br>
+
+        <div class = "avatar-pic">
+            <div>
+                <input type="text" name="photo" id="photo" value="../../resource/default.jpg" style="display: none">
+            </div>
+            <div class="head-p" id="touxiang">
+                <img src="{{photo}}" alt='头像'  width="100" height="100" name="avatar_img" id="avatar_img">
+            </div>
+            <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+            <script>
+                $("#avatar").change(function () {
+                    // 拿到文件数据
+                    var choose_file = $(this)[0].files[0];
+                    // 截取图片名称小数点后的字符串
+                    var ftype=choose_file.name.substring(choose_file.name.lastIndexOf(".")+1);
+                    // 校验格式是否是图片类型
+                    if(ftype=="jpg" || ftype=="png" || ftype=="jpeg" || ftype == "JPG"){
+                        // 限制大小，照片大小不能超过1M
+                        var size = choose_file.size / 1024 / 1024;
+
+                        // 实例化一个阅读器对象
+                        var reader = new FileReader();
+                        // 读取文件的路径，没有返回值,结果在reader.result里
+                        reader.readAsDataURL(choose_file);
+                        // 读取需要时间，读完后再修改图片路径
+                        reader.onload=function () {
+                            //回显给上方图片中
+                            document.getElementById("photo").value = this.result;
+                            $("#avatar_img").attr("src",this.result);
+                        }
+                    }else{
+                        alert("only support .jpg/.png/.jpeg file, please try again");
+                        return false;
+                    }
+                });
+            </script>
+        </div>
+        <button class = "update" type="submit">
+            Confirm
+        </button>
+    </form>
+</section>
+
+<section class = "delete">
+    <h3 class="update">
+        Delete Me
+    </h3>
+
+    <form action="/user/sign-up/delete" method="post">
+        <div class="input">
+            <label>
+                We would hate to see you go,
+            </label>
+            <br><br>
+            <label>
+                but if you are completely sure...
+            </label>
+        </div>
+        <br><br><br>
+        <button class = "delete" type="submit"
+                onclick="if(confirm('Remember: there is no going back')==false)
+                    return false">
+            Delete my account
+        </button>
+    </form>
+</section>
+
+<!--<section>-->
+<!--    <h3>Get all user information</h3>-->
+<!--    <a href="/user/sign-up/get-data">Load info</a>-->
+<!--    <div>-->
+<!--                {{# each items }}-->
+<!--            <article class="item">-->
+<!--                <div>Username: {{ this.accountName }}</div>-->
+<!--                <div>Password: {{ this.password }}</div>-->
+<!--                <div>ID: {{ this._id }}</div>-->
+<!--            </article>-->
+<!--                {{/each}}-->
+<!--    </div>-->
+<!--</section>-->

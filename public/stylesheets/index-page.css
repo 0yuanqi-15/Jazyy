@@ -1,0 +1,84 @@
+/* this css file controls the format of index page */
+
+@import "general.css";
+
+html {
+    scroll-behavior: smooth;
+}
+
+#section1 {
+    background-image: url("../resource/Index page section 1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#section2 {
+    background-image: url("../resource/Index page section 2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#section3 {
+    background-image: url("../resource/Index page section 3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+div.slogan {
+    color: white;
+    font-size: 100px;
+    letter-spacing: 15px;
+}
+
+div.small {
+    color: white;
+    font-size: 25px;
+    letter-spacing: 7px;
+}
+
+div.title {
+    color: white;
+    font-size: 75px;
+    letter-spacing: 3px;
+    margin-left: 10vw;
+    font-weight: bold;
+}
+
+div.subtitle {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10vw;
+}
+
+div.details_left {
+    color: white;
+    font-size: 25px;
+    margin-left: 10vw;
+    width: 40vw;
+    font-family: Roboto-Regular, sans-serif;
+}
+
+div.details_right {
+    color: white;
+    font-size: 25px;
+    margin-left: 50vw;
+    width: 40vw;
+    font-family: Roboto-Regular, sans-serif;
+}
+
+div.acknowledge {
+    color: white;
+    font-family: "Times New Roman", serif;
+    font-size: 30px;
+    margin-top: 30vh;
+    margin-left: 55vw;
+    width: 30vw;
+}
+
+div.center {
+    text-align: center;
+}

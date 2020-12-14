@@ -1,0 +1,116 @@
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+<!--    <div class="input">-->
+<!--        <input type="hidden" id="cookiename" name="accountName" value = {{username}}>-->
+<!--    </div>-->
+<!--    <div class="input">-->
+<!--        <input type="hidden" id="photosrc" name="photosrc" value={{photo}}>-->
+<!--    </div>-->
+    <li>
+        <li><a href="/contact-us">
+        <i class="fas fa-info-circle"></i>
+            Contact Us
+        </a>
+        </li>
+        <li><a href="/myfolio">
+            <i class="fas fa-address-card"></i>
+            myFolio
+        </a>
+        </li>
+        <li><a href="/discussion-board">
+            <i class="fas fa-comments"></i>
+            Forum
+        </a>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+            <i class="fas fa-user-cog"></i>
+            User Center
+            </a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">Account Management</a>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    var photo = document.getElementById("photosrc");
+                    console.log(cookiename.value);
+                    console.log(photo.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+        <li><a href="/">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        </li>
+
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+
+            <a>{{username}}</a>
+
+        </li>
+
+
+
+    </ul>
+</div>
+
+<h1>
+    Welcome back, {{username}}!
+</h1>
+
+<br><br>
+<div style="text-align: center">
+    <div class="wrapper" style="display: flex">
+        <section class="forum">
+            <br>
+            <br>
+            <br>
+            <usercentre_h2>
+                Share your ideas
+            </usercentre_h2><br>
+            <br>
+            <usercentre_h3>
+                Latest discussion about others or yourself
+                <br>
+                More news about graduation & employment
+                <br>
+                Interested in others' eportfolio?
+            </usercentre_h3>
+            <br>
+            <br>
+            <br>
+            <button class = "go_forum"><a href="/discussion-board" style="color: white" >Ask now</a></button>
+
+        </section>
+
+        <section class="folio">
+            <br>
+            <br>
+            <br>
+            <usercentre_h2>
+                Check myFolio
+            </usercentre_h2><br>
+            <br>
+            <usercentre_h3>
+                Overview of myFolio
+                <br>
+                Edit & save changes
+                <br>
+            </usercentre_h3>
+            <br>
+            <br>
+            <br>
+            <button class = "go_folio">
+                <a href="/myfolio" style="color: #34495e">Go to myFolio</a>
+            </button>
+        </section>
+    </div>
+</div>

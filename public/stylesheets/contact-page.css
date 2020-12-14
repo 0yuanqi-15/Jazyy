@@ -1,0 +1,27 @@
+/* this css file controls the format of contact us page */
+
+@import "general.css";
+
+html {
+    scroll-behavior: smooth;
+}
+
+#section1 {
+    background-image: url("../resource/Contact page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+div.details_right {
+    color: black;
+    font-size: 25px;
+    margin-left: 40vw;
+    width: 50vw;
+    font-family: Roboto-Regular, sans-serif;
+}
+
+div.bold {
+    font-size: 75px;
+    font-family: GothicB, sans-serif;
+}

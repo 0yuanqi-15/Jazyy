@@ -1,0 +1,198 @@
+<!-- reformed nav bar start -->
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li>
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myFolio
+            </a>
+        </li>
+        <li>
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Forum
+            </a>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var loginOptin = document.getElementById("login");
+                    var cookiename = document.getElementById("cookiename");
+                    console.log(cookiename.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<h1>Forum</h1>
+
+<h2>Sharing ideas has never been so important...</h2>
+
+<a href="/discussion-board/new-enquiry">
+    <button_new>
+        Start a New Discussion
+    </button_new>
+</a>
+
+<h2>
+    <div>
+        {{ message }}
+    </div>
+</h2>
+
+{{# each items }}
+    <section>
+        <article class="item">
+            <h3>{{ this.title }}</h3>
+
+            <h4 class="main">
+                <div class="input">
+                    <input type="hidden" id="authorName" name="authorName" value = {{this.accountName}}>
+                </div>
+
+                &nbsp;<a href = "/myfolio/{{this.accountName}}" class="AuthorName"> {{ this.accountName }}</a>
+                <a href = "/myfolio/{{this.accountName}}">
+                    <img class="avatar" src={{this.avatar}} width="40" height="40">
+                </a>
+                <br>
+
+            </h4>
+
+            <h5 class="main">{{ this.content }}</h5>
+            <div class="item-date" >{{ this.date }}</div>
+
+            <br>
+            <div id = "like_and_reply">
+                <form action="/discussion-board/reply" method="post">
+                    <div class="input">
+                        <input type="hidden" id="id" name="id" value = {{this._id}}>
+                    </div>
+                    <input type="text" id="reply" name = "reply" placeholder="Reply here">
+                    <button class = "reply" type="submit"><i class="fas fa-reply"></i>Reply</button>
+                </form>
+
+                <form action="/discussion-board/like" method="post">
+                    <div class="input">
+                        <input type="hidden" id="id" name="id" value = {{this._id}}>
+                    </div>
+                    <button class = "like" type="submit"><i class="fas fa-heart"></i>Like: {{ this.likes }}</button>
+                </form>
+            </div>
+
+            {{# each reply }}
+                <form action="/discussion-board/delReply" method="post" id="replyyyy" style="display: block">
+<!--                    <script>-->
+<!--                        var a = document.getElementById("deleteee")-->
+<!--                        if(a != null){-->
+<!--                            document.getElementById("deleteee").style.display = "none";-->
+<!--                        }-->
+<!--                    </script>-->
+
+                    <h4 class="reply">
+<!--                        {{this.accountName}} replies:-->
+                        <a href = "/myfolio/{{this.accountName}}">
+                        <img class="avatar" src={{this.avatar}} width="40" height="40">
+                        </a>
+                        <div class="input">
+                            <input type="hidden" id="replier1" name="accountName" value = {{this.accountName}}>
+                        </div>
+                        <div class="input">
+                            <input type="hidden" id="authorId" name="authorId" value = {{this.author_id}}>
+                        </div>
+                        <div class="input">
+                            <input type="hidden" id="id" name="id" value = {{this._id}}>
+                        </div>
+                    </h4>
+                    <div class = "reply-wrapper">
+                    <h5 class="reply">{{this.content}}</h5>
+                    <button class = "delete_reply" type="submit" id="replyyy" >
+                        Delete
+                    </button>
+                    </div>
+                    <div class="reply-date">{{this.date}}</div>
+
+
+                    <script>
+                        var visitor = document.getElementById("cookiename");
+                        var author = document.getElementById("replier1");
+                        var hideBut = document.getElementById("replyyy");
+                        if(visitor.value !== author.value){
+                            hideBut.style.display = "none";
+                        }
+                        author.id = "99";
+                        hideBut.id = "gun";
+                    </script>
+                </form>
+            {{/each}}
+            <form action="/discussion-board/delete" method="post" id="delButton" style="display: block">
+                <div class="input">
+                    <input type="hidden" id="id" name="id" value = {{this._id}}>
+                </div>
+                <div class="input">
+                    <input type="hidden" id="accountName" name="accountName" value = {{this.accountName}}>
+                </div>
+                <script>
+                    var visitor = document.getElementById("cookiename");
+                    var author = document.getElementById("authorName");
+                    var hideBut = document.getElementById("delButton");
+                    if(visitor.value !== author.value){
+                        hideBut.style.display = "none";
+                    }
+                    console.log(author.value);
+                    author.id = "88";
+                    hideBut.id = "888";
+                </script>
+                <br>
+                <button class = "delete_post" type="submit" onclick="if(confirm('Remember: there is no going back')==false) return false">
+                    Delete my Post
+                </button>
+            </form>
+        </article>
+        <br>
+    </section>
+{{/each}}
+
+<script>
+    var delReply = function() {
+        // var hiderep = document.getElementById("replyyyy");
+        // hiderep.id = "deleteee";
+        // if(hiderep.id === "deleteee"){
+        //     hiderep.style.display = "none";
+        // }
+    };
+</script>

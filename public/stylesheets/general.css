@@ -1,0 +1,126 @@
+/* this css file controls the generally used format */
+
+/* import fonts */
+@font-face {
+    font-family: Roboto-Black;
+    src: url("../resource/Roboto/Roboto-Black.ttf");
+}
+@font-face {
+    font-family: Roboto-Bold;
+    src: url("../resource/Roboto/Roboto-Bold.ttf");
+}
+@font-face {
+    font-family: Roboto-Light;
+    src: url("../resource/Roboto/Roboto-Light.ttf");
+}
+@font-face {
+    font-family: Roboto-Medium;
+    src: url("../resource/Roboto/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: Roboto-Regular;
+    src: url("../resource/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: Gothic;
+    src: url("../resource/Gothic/GOTHIC.ttf");
+}
+@font-face {
+    font-family: GothicB;
+    src: url("../resource/Gothic/GOTHICB.ttf");
+}
+
+/* body of the page */
+body {
+    background: #bdc3c7;
+    color: white;
+    font-family: Gothic, sans-serif;
+    margin: 0 0 0 0;
+}
+
+/* title of the page */
+h1{
+    color: #34495e;
+    font-size: 50px;
+    margin: 20px 0 0 80px;
+}
+
+/* subtitle of the page */
+h2 {
+    color: #34495e;
+    font-size: 25px;
+    font-style: italic;
+    margin: 20px 0 0 80px;
+}
+
+/* navigation bar codes: beginning */
+ul {
+    background-color: #34495e;
+    font-size: 15px;
+    list-style-type: none;
+    margin: 0;
+    opacity: 90%;
+    overflow: hidden;
+    padding: 0;
+    top: 0;
+    z-index: 1;
+}
+
+li {
+    float: right;
+}
+
+li a, .dropbtn {
+    color: white;
+    display: inline-block;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #1b2630;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    min-width: 160px;
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    display: block;
+    padding: 12px 16px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.username{
+    float: left;
+    /*margin-right: 700px;*/
+}
+.circle{
+    border-radius: 24px;
+    margin-top: 3px;
+    margin-left: -100px;
+}
+
+img.circle{
+    margin-left: 20px;
+    float: left;
+}
+/* navigation bar codes: ending */

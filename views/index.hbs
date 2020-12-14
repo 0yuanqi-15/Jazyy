@@ -1,0 +1,117 @@
+<!--<div class="input">-->
+<!--    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>-->
+<!--</div>-->
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li><a href="/myfolio">
+            <i class="fas fa-address-card"></i>
+            myFolio
+            </a>
+        </li>
+        <li>
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Forum
+            </a>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    console.log(cookiename.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<div id="section1">
+    <br><br><br><br><br><br><br><br><br>
+    <div class="center">
+        <div class="slogan">SHARING<br>EXPLORING</div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="center">
+        <a href="#section2" style="text-decoration: none;">
+            <div class="small">FIND MORE</div>
+            <i class="fas fa-chevron-down" style="color: white; font-size: 25px;"></i>
+        </a>
+    </div>
+</div>
+
+<div id="section2">
+    <br><br><br>
+    <div class="center">
+        <a href="#section1" style="text-decoration: none;">
+            <i class="fas fa-chevron-up" style="color: white; font-size: 25px;"></i>
+            <div class="small">BACK TO TOP</div>
+        </a>
+    </div>
+    <br>
+    <div class="title">SHARE YOURS & FIND NEW</div>
+    <div class="subtitle">Boost yourself with our multi-media share & find features...</div>
+    <br><br>
+    <div class="details_left">
+        Can't wait to share? Whether it is a picture, text, or even a PDF,
+        just put them on Jazyy's personal homepage. This is your private
+        multimedia home!
+    </div>
+    <br><br>
+    <div class="details_right">
+        I need more inspiration in Jazyy! Just click Forum and participate in
+        the discussion through like or reply.
+        <br>
+        Interested in the author? Click on his avatar to access his personal
+        homepage.
+    </div>
+    <br><br><br><br><br><br><br>
+    <div class="center">
+        <a href="#section3" style="text-decoration: none;">
+            <div class="small">ACKNOWLEDGEMENT</div>
+            <i class="fas fa-chevron-down" style="color: white; font-size: 25px;"></i>
+        </a>
+    </div>
+    <br>
+</div>
+
+<div id="section3">
+    <br><br>
+    <div class="acknowledge">
+        We acknowledge and pay respect to the Traditional Owners
+        of the lands upon which our Chinese-Australian-based Jazyy team is situated.
+    </div>
+</div>

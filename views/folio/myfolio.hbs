@@ -1,0 +1,243 @@
+<!-- reformed nav bar start -->
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li>
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myFolio
+            </a>
+        </li>
+        <li>
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Forum
+            </a>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <content class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    console.log(cookiename.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </content>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<h1>myFolio</h1>
+
+<br>
+
+
+<div class="wrapper">
+    <div class="myName">
+        {{folioUsername}}
+        <br>
+        <!--<hr align=center width=95% color=#FFFFFF size=1>-->
+        <button class = "edit" style="display: {{editDisplay}};">
+            <a href="/edit-myfolio" style="color:#34495e">
+                <i class="fas fa-edit"></i>edit
+            </a>
+        </button>
+    </div>
+
+    <div class="myPhoto">
+        <img src="{{myPhoto}}" alt='myPhoto' onerror="this.src='../../resource/default.jpg'" width ="400" height="450">
+    </div>
+
+    <div class="myInfo1">
+        <b style="font-size: 30px">Basic Info</b><br><br>
+        First Name: {{fname}}<br><br>
+        Country: {{country}}<br><br>
+        Birthday: {{birthday}}<br><br>
+
+    </div>
+
+    <div class="myInfo2">
+        <b style="font-size: 30px"></b><br><br>
+        Last Name: {{lname}}<br><br>
+        Gender: {{gender}}<br><br>
+        Occupation: {{occupation}}<br><br>
+
+    </div>
+
+    <div class = "customizeInfo">
+        <b style="font-size: 30px">My Info</b><br><br>
+        <div class="input">
+            <input type="hidden" id="eachKey1" name="eachKey1" value = {{customizekey1}}>
+        </div>
+        <div id = "eachCustomizeInfo1">{{customizekey1}}: {{customizeInfo1}}<br><br></div>
+        <script>
+            var key = document.getElementById("eachKey1");
+            if(key.value == ""){
+                document.getElementById("eachCustomizeInfo1").style.display = "none";
+            }
+        </script>
+
+        <div class="input">
+            <input type="hidden" id="eachKey2" name="eachKey2" value = {{customizekey2}}>
+        </div>
+        <div id = "eachCustomizeInfo2">{{customizekey2}}: {{customizeInfo2}}<br><br></div>
+        <script>
+            var key = document.getElementById("eachKey2");
+            if(key.value == ""){
+                document.getElementById("eachCustomizeInfo2").style.display = "none";
+            }
+        </script>
+
+        <div class="input">
+            <input type="hidden" id="eachKey3" name="eachKey3" value = {{customizekey3}}>
+        </div>
+        <div id = "eachCustomizeInfo3">{{customizekey3}}: {{customizeInfo3}}<br><br></div>
+        <script>
+            var key = document.getElementById("eachKey3");
+            if(key.value == ""){
+                document.getElementById("eachCustomizeInfo3").style.display = "none";
+            }
+        </script>
+        Self-description: {{subject}}<br><br>
+    </div>
+
+    <div class = "link">
+        <b style="font-size: 30px">My links</b><br><br>
+        {{# each link}}
+            {{this.description}}: &nbsp;&nbsp;
+            <a href="{{this.file}}" target = "_blank" style="color: #00B7FF">{{this.file}}</a>
+            <br>
+        {{/each}}
+        <br>
+    </div>
+
+    <div class="slideshow-container">
+        <h3>Photo gallery</h3>
+        <div style="text-align: center">
+        {{# each image}}
+            <div class="mySlides fade">
+                <img style="width:50%;height: 50%;margin-bottom: 2%" src = {{this.file}} >
+
+                <div id = "description"> {{this.description}} </div>
+            </div>
+        {{/each}}
+        </div>
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+<!--只能看第一个pdf 可能是因为openfile的id一样所以ajax只能开第一个？？？？不知道-->
+<!--    -->
+<!--    -->
+<!--    -->
+    <div class = "show-file">
+        <h3>MyFiles</h3>
+        <div class="pdf_files">
+        {{# each PDF }}
+            <div class="eachFile">
+            <div class="pdf_image">
+            <button id="openfile" style="background: none; border: none;cursor: pointer;"><img src="../resource/pdfimage.png" width="64" height="79"></button>
+            </div>
+            <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+                <div class="description"><b>Description</b>: {{this.description}}</div>
+            <script>
+                var done = 0;
+                //avoid open many other pdf
+                $("button#openfile").click(function () {
+                    this.id = "openfile1";
+                    $('#openfile1').on('click',function(){
+                        if (done == 0){
+                            var win = window.open();
+                            win.document.write('<body style="margin:0px;"><iframe src= {{this.file}} scrolling="no" width="100%" height="100%" frameborder="0" ></iframe></body>');
+                            done = 1;
+                            this.id = "openfile";
+                        }
+                    });
+                    done = 0;
+                })
+            </script>
+            <br><br>
+
+            </div>
+        {{/each}}
+        </div>
+    </div>
+
+    <div class = "video">
+        <h3 style="margin-bottom: -10px">MyVideos</h3>
+        {{# each video}}
+        <div style="text-align: center;border-bottom: 1px dashed white;">
+            <br>
+            <b style="font-size: 30px">{{this.description}}</b>
+            <br><br>
+        <iframe width="840" height="472" src="{{this.file}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br><br>
+        </div>
+        {{/each}}
+    </div>
+</div>

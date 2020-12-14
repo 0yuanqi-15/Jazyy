@@ -1,0 +1,618 @@
+<!-- reformed nav bar start -->
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li>
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myFolio
+            </a>
+        </li>
+        <li>
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Forum
+            </a>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <content class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    console.log(cookiename.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </content>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<h1>edit my folio here</h1>
+
+
+<script>
+
+</script>
+<br>
+<div class="container">
+        <form action="/user/sign-up/updateUserInfo" method="post">
+        <div class="row">
+            <h3>Personal Information</h3>
+            <h4 style="color: lightcoral">ATTENTION on privacy: all the information here will be shown on your personal page</h4>
+            <h4>Don't forget to save changes!<br>
+                Fill in the form with some basic information of yours. Customize your own columns on the bottom of this part<br>
+            </h4>
+
+        </div>
+        <div class="row">
+            <div class="key">
+                <label for="fname">First Name</label>
+            </div>
+            <div class="value">
+                <input type="text" id="fname" name="firstname" placeholder="Your name.." value="{{fname}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="key">
+                <label for="lname">Last Name</label>
+            </div>
+            <div class="value">
+                <input type="text" id="lname" name="lastname" placeholder="Your last name.." value="{{lname}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="key">
+                <label for="country">Country</label>
+            </div>
+            <div class="value">
+                <input type="hidden" id="mycountry" name="mycountry" value = {{country}}>
+                <select id="country" name="country">
+                    <option value="Australia">Australia</option>
+                    <option value="China">China</option>
+                    <option value="Other">other</option>
+
+                </select>
+                <script>
+                    var x = document.getElementById("country");
+                    var i;
+                    for (i = 0; i < x.options.length; i++){
+                        if(x.options[i].value === document.getElementById("mycountry").value){
+                            x.options[i].selected = true;
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="key">
+                <label for="gender">Gender</label>
+            </div>
+            <div class="value">
+                <input type="hidden" id="mygender" name="mygender" value = {{gender}}>
+                <select id="gender" name="gender">
+                    <option value="Other">other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <script>
+                    var x = document.getElementById("gender");
+                    var i;
+                    for (i = 0; i < x.options.length; i++){
+                        if(x.options[i].value === document.getElementById("mygender").value){
+                            x.options[i].selected = true;
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="key">
+                <label for="bday">Birthday</label>
+            </div>
+            <div class="value">
+                <input type="hidden" id="birthday" name="birthday" value = {{birthday}}>
+                <input type="date" id="bday" name="bday"
+                       value="2000-01-01"
+                       min="1950-01-01" max="2020-12-31" style="margin-top: 10px">
+                <script>
+                    if(document.getElementById("birthday").value){
+                        document.getElementById("bday").value = document.getElementById("birthday").value;
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="key">
+                <label for="occupation">Occupation</label>
+            </div>
+            <div class="value">
+                <input type="text" id="occupation" name="occupation" placeholder="Your occupation/education.." value="{{occupation}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="key">
+                <label for="self-description">Self-description</label>
+            </div>
+            <div class="value">
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px">{{subject}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <br>
+            <div class = "customize">Customize your information here</div>
+            <br>
+        </div>
+
+
+        <div class="row">
+            <div class="key">
+                <input type="text" id="customkey1" name="customkey1" placeholder="Title" style="width: 250px" value="{{customizekey1}}">
+            </div>
+
+            <div class="value">
+                <input type="text" id="customvalue1" name="customvalue1" placeholder="Write something.." value="{{customizeInfo1}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="key">
+                <input type="text" id="customkey2" name="customkey2" placeholder="Title"  value="{{customizekey2}}">
+            </div>
+
+            <div class="value">
+                <input type="text" id="customvalue2" name="customvalue2" placeholder="Write something.." value="{{customizeInfo2}}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="key">
+                <input type="text" id="customkey3" name="customkey3" placeholder="Title" value="{{customizekey3}}">
+            </div>
+
+            <div class="value">
+                <input type="text" id="customvalue3" name="customvalue3" placeholder="Write something.." value="{{customizeInfo3}}">
+            </div>
+        </div>
+        <br><br>
+        <div class="row" id="submit_info">
+            <input type="submit" value="Submit">
+        </div>
+            <br><br>
+        <div class="row" style="border-top: 1px solid white;">
+            <h3>Edit your links</h3>
+            <h4>Not enough with plain text, pics and pdf? Just paste your links here!</h4>
+            <br>
+
+            <div class="edit-link" style="text-align: center">
+                <form action="/user/sign-up/updateLink" method="post">
+                    {{# each link}}
+                        <form action="/user/sign-up/updateLink" method="post">
+                            <div class="key">
+                                <div class="link_box">{{this.description}}</div>
+                            </div>
+                            <div class="value">
+                                <div class="link_box">{{this.file}}</div>
+                            </div>
+                            <input type = "hidden" name="id" value = "{{this._id}}">
+<!--                            <input type = "submit" value ="Save change">-->
+                        </form>
+
+                        <form action="/user/sign-up/delLink" method="post">
+                            <input type = "hidden" name="id" value = "{{this._id}}">
+                            <button type = "submit" class="delete_link"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                        <br>
+                    {{/each}}
+                </form>
+                <form action="/user/sign-up/updateLink" method="post">
+                    <div class="key">
+                    <input type = "text" name = "description" placeholder="Add your new link description here">
+                    </div>
+                    <div class="value">
+                    <input type = "text" name = "link"  placeholder="Add a new link here">
+                    </div>
+                    <input type = "hidden" name ="type" value = "add">
+                    <button type= "submit" class="add_link"><i class="fas fa-plus"></i></button>
+                </form>
+
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+
+        <div class="row">
+            <br>
+            <hr align=center width=100% color=#FFFFFF size=1>
+            <br>
+        </div>
+
+        </form>
+
+<!----------------------------------------------------------------------------------->
+
+        <div class="row">
+            <h3>A photo of yourself</h3>
+            <h4>Show others who you are!<br>
+                This could be a selfie, your ID photo or any photo represents yourself!<br>
+            </h4>
+        </div>
+
+        <div class="row" style="text-align: center">
+            <form action="/user/sign-up/updateMyPhoto" method="post">
+                <br>
+                <h4>You can only upload one pic in this section</h4>
+                <div class="edit-myphoto">
+                    <img src={{myPhoto}} alt='myPhoto' onerror="this.src='../../resource/default.jpg'" width ="400" height="450" name="photo_img" id="photo_img">
+                </div>
+                <div id="fromTx">
+                    <input type="file" class="file"  name="myImage" id="myImage">
+                </div>
+                <br><br>
+
+                <div>
+                    <input type="text" name="myPhoto" id="myPhoto" value="../../resource/default.jpg" style="display: none">
+                </div>
+
+                <input type= submit value = "Save">
+                <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+                <script>
+                    $("#myImage").change(function () {
+                        // 拿到文件数据
+                        var choose_file = $(this)[0].files[0];
+                        // 截取图片名称小数点后的字符串
+                        var ftype=choose_file.name.substring(choose_file.name.lastIndexOf(".")+1);
+                        // 校验格式是否是图片类型
+                        if(ftype=="jpg" || ftype=="png" || ftype=="jpeg" || ftype == "JPG"){
+                            // 限制大小，照片大小不能超过1M
+                            var size = choose_file.size / 1024 / 1024;
+
+                            // 实例化一个阅读器对象
+                            var reader = new FileReader();
+                            // 读取文件的路径，没有返回值,结果在reader.result里
+                            reader.readAsDataURL(choose_file);
+                            // 读取需要时间，读完后再修改图片路径
+                            reader.onload=function () {
+                                //回显给上方图片中
+                                document.getElementById("myPhoto").value = this.result;
+                                $("#photo_img").attr("src",this.result);
+                            }
+                        }else{
+                            alert("only support .jpg/.png/.jpeg file, please try again");
+                            return false;
+                        }
+                    });
+                </script>
+
+            </form>
+        </div>
+
+        <div class="row">
+            <br>
+            <hr align=center width=100% color=#FFFFFF size=1>
+            <br>
+        </div>
+
+<!----------------------------------------------------------------------------------->
+        <div class="row">
+            <h3>Photos in your photo gallery</h3>
+            <h4>Artworks, more selfies, photos with your friends, any photo you want to share!</h4>
+        </div>
+
+        <div class="row" style="margin-left: 10%">
+            {{# each image }}
+                <form action="/user/sign-up/deleteImage" method="post" >
+                    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+                    <img src={{this.file}}   width="180px" height="180px" >
+                    <br>
+                    <div class="input">
+                        <input type="hidden" id="id" name="id" value = {{this._id}}>
+                    </div>
+                    <button class = "delete_PDF" type="submit" style="margin-top: -10.5%;margin-right: 20%">
+                        Delete
+                    </button>
+                    <br>
+                </form>
+                <form action="/user/sign-up/updateDescription" method="post">
+                    <input type="text" name = "newDescription" value="{{this.description}}"
+                           style="
+                           position: absolute;
+                           display: inline;
+                           margin-left: 20.5%;margin-top: -11%;width: 35%;height: 10%">
+                    <input type="hidden" name = "id" value = {{this._id}}>
+                    <button class = "save_changes" type = submit style="margin-top: -5%">Save changes</button>
+                </form>
+                <br>
+                <br>
+            {{/each}}
+        </div>
+
+        <div class="row" style="margin-left: 10%">
+            <form action="/user/sign-up/updateImage" method="post">
+
+                <div class="row">
+
+                    <div>
+                        <input type="text" name="photos" id="photos" value="../../resource/default2.png" style="display: none">
+                    </div>
+                    <div class="head-p" id="touxiang">
+                        <img src="../../resource/default2.png" alt='image'  width="180" height="180" name="photos_img" id="photos_img">
+                    </div>
+                    <div id="fromTx">
+                        <input type="file" class="file"  name="image" id="image">
+                    </div>
+
+                    <input type="text" name = imageDescription placeholder = "Add some description to your file"
+                           style="position: absolute;
+                           overflow-wrap: break-word;
+                           margin-left: 20.5%;margin-top: -11%;width: 35%;height: 10%">
+                    <input type= submit value = "Add" style="margin-top: -12%;margin-right: 20%">
+
+                    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+                    <script>
+                        $("#image").change(function () {
+                            // 拿到文件数据
+                            var choose_file = $(this)[0].files[0];
+                            // 截取图片名称小数点后的字符串
+                            var ftype=choose_file.name.substring(choose_file.name.lastIndexOf(".")+1);
+                            // 校验格式是否是图片类型
+                            if(ftype=="jpg" || ftype=="png" || ftype=="jpeg" || ftype == "JPG"){
+                                // 限制大小，照片大小不能超过1M
+                                var size = choose_file.size / 1024 / 1024;
+
+                                // 实例化一个阅读器对象
+                                var reader = new FileReader();
+                                // 读取文件的路径，没有返回值,结果在reader.result里
+                                reader.readAsDataURL(choose_file);
+                                // 读取需要时间，读完后再修改图片路径
+                                reader.onload=function () {
+                                    //回显给上方图片中
+                                    document.getElementById("photos").value = this.result;
+                                    $("#photos_img").attr("src",this.result);
+                                }
+                            }else{
+                                alert("only support .jpg/.png/.jpeg file, please try again");
+                                return false;
+                            }
+                        });
+                    </script>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="row">
+            <br>
+            <hr align=center width=100% color=#FFFFFF size=1>
+            <br>
+        </div>
+<!----------------------------------------------------------------------------------->
+        <div class="row">
+            <h3>Resume, a proud work of yours, or any pdf files...</h3>
+            <h4>Note that you can only upload one PDF file at a time<br>
+                You can come back and edit your uploaded PDF files at any time!<br>
+                Don't forget to save changes!<br><br><br>
+            </h4>
+        </div>
+
+
+        <div class="row" style="margin-left: 9.5%">
+            {{# each PDF }}
+                <form action="/user/sign-up/deletePDF" method="post" id="showPDF">
+                    <button id="openfile" type="button" style="background: none; border: none;cursor: pointer;"><img src="../resource/pdfimage.png" width="64" height="79"></button>
+                    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+                    <iframe src="{{this.file}}" id="preview{{@index}}" scrolling="no" width="500px" height="500px" frameborder="0" style="display:none" ></iframe>
+                    <br>
+                    <button id = "previewButton{{@index}}" type="button" style="margin-left: 0.5%"> Preview </button>
+
+                    <button id = "closeButton{{@index}}" type = "button" style="display:none" > Close </button>
+                    <script>
+                        $("#previewButton{{@index}}").on('click',function() {
+                            $('#preview{{@index}}').css("display", "block");
+                            $("#closeButton{{@index}}").css("display", "block");
+
+                            $("#closeButton{{@index}}").on('click', function () {
+                                $('#preview{{@index}}').css("display", "none");
+                                $("#closeButton{{@index}}").css("display", "none");
+                            })
+
+                        })
+                    </script>
+                    <div class="input">
+                        <input type="hidden" id="id" name="id" value = {{this._id}}>
+                    </div>
+                    <button class = "delete_PDF" type="submit" style="margin-top: -7.5%;margin-right: 20%">
+                        Delete
+                    </button>
+                    <br>
+                </form>
+                <form action="/user/sign-up/updateDescription" method="post" >
+
+                    <input type="text" name = newDescription value="{{this.description}}"
+                           style="position: absolute;
+                           overflow-wrap: break-word;
+                           margin-left: 20.5%;margin-top: -9%;width: 35%;height: 10%">
+                    <input type="hidden" name="id" value = {{this._id}}>
+                    <input type="hidden" name = "PDFType">
+                    <button type = submit class="save_changes">Save changes</button>
+                </form>
+                <br>
+            {{/each}}
+        </div>
+
+
+
+
+    <form action="/user/sign-up/updatePDF" method="post">
+        <div class="row" style="margin-left: 10%">
+            <img src="../resource/pdfimage.png" width="64" height="79"><br>
+            <input id="addFile" type="file"  accept="application/pdf">
+            <button type = "button" id="previewFile" style="display:none">Preview</button>
+            <div>
+                <input type="text" name="PDFfile" id="PDFfile" value="" style="display: none">
+            </div>
+
+            <input type="text" name="PDFDescription" id="PDFDescription" placeholder="Add some description to your file"
+                   style="position: absolute;
+                   overflow-wrap: break-word;
+                   margin-left: 20%;margin-top: -7.5%;width: 35%;height: 10%">
+
+            <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+            <iframe src="" id="previewPDF" scrolling="no" width="500px" height="500px" frameborder="0" style="display:none" ></iframe>
+            <button id = "PDFClose" type = "button" style="display:none" > Close </button>
+            <script>
+                $('#addFile').on('change',function(){
+                    var file = $('#addFile').get(0).files[0];
+                    $('#previewFile').css("display","block");
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function() {
+                        document.getElementById("PDFfile").value = this.result;
+                        $("#previewFile").on('click',function(){
+                            $('#previewPDF').css("display","block");
+                            $("#previewPDF").attr("src",reader.result);
+                            $("#PDFClose").css("display","block");
+
+                            $("#PDFClose").on("click",function (){
+                                $('#previewPDF').css("display","none");
+                                $("#PDFClose").css("display","none");
+                            })
+                        });
+                    };})
+            </script>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Add" id="submit" style="margin-top: -7%;margin-right: 19%">
+        </div>
+        <br>
+        <br>
+    </form>
+
+    <!----------------------------------------------------------------------------------->
+    <div class="row" style="border-top: 1px solid white;">
+        <h3>Edit your YouTube video links here</h3>
+        <h4>Don't know how to find the Youtube video URL? See the instruction <button id="instruction">here</button></h4>
+        <br>
+
+        <script>
+            $("#instruction").click(function () {
+                var win = window.open();
+                win.document.write('<body style="margin:0px;"><iframe src= "../../resource/Find your YouTube video URL.pdf" scrolling="no" width="100%" height="100%" frameborder="0" ></iframe></body>');
+            })
+        </script>
+
+        <div class="edit-link" style="text-align: center">
+            <form action="/user/sign-up/updateVideo" method="post">
+                {{# each video}}
+                    <form action="/user/sign-up/updateVideo" method="post">
+                        <div class="key">
+                            <div class="link_box">{{this.description}}</div>
+                        </div>
+                        <div class="value">
+                            <div class="link_box">{{this.file}}</div>
+                        </div>
+                        <input type = "hidden" name="id" value = "{{this._id}}">
+                    </form>
+
+                    <form action="/user/sign-up/delVideo" method="post">
+                        <input type = "hidden" name="id" value = "{{this._id}}">
+                        <button type = "submit" class="delete_link"><i class="far fa-trash-alt"></i></button>
+                    </form>
+                    <br>
+                    <br>
+                {{/each}}
+            </form>
+            <form action="/user/sign-up/updateVideo" method="post">
+                <div class="key">
+                    <input type = "text" name = "description" placeholder="Add your new video description here">
+                </div>
+                <div class="value">
+                    <input type = "text" name = "video"  placeholder="Add a new video link here">
+                </div>
+                <input type = "hidden" name ="type" value = "add">
+                <button type= "submit" class="add_link"><i class="fas fa-plus"></i></button>
+            </form>
+
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+
+</div>
+
+
+
+<!--<div id="uploadPDF">-->
+<!--    <h2>Upload your PDF here!</h2>-->
+<!--    <form action="/user/sign-up/update" method="post">-->
+<!--        <input id="addFile" type="file"  accept="application/pdf">-->
+<!--        <a href="javascript:void(0);" id="previewFile" target="_blank" style="display:none">Preview</a>-->
+<!--        <div>-->
+<!--            <input type="text" name="file" id="file" value="" style="display: none">-->
+<!--        </div>-->
+<!--        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+<!--        <iframe src="" id="previewPDF" scrolling="no" width="500px" height="500px" frameborder="0" style="display:none" ></iframe>-->
+<!--        <script>-->
+<!--            $('#addFile').on('change',function(){-->
+<!--                var file = $('#addFile').get(0).files[0];-->
+<!--                $('#previewFile').css("display","block");-->
+<!--                var reader = new FileReader();-->
+<!--                reader.readAsDataURL(file);-->
+<!--                reader.onload = function() {-->
+<!--                    document.getElementById("file").value = this.result;-->
+<!--                    $("#previewFile").on('click',function(){-->
+<!--                        $('#previewPDF').css("display","block");-->
+<!--                        // $("#previewPDF").attr("src",reader.result);-->
+<!--                        var win = window.open();-->
+<!--                        win.document.write('<body style="margin:0px;"><iframe src="'+reader.result+'" scrolling="no" width="100%" height="100%" frameborder="0" ></iframe></body>');-->
+<!--                    });-->
+<!--                };})-->
+<!--        </script>-->
+<!--        <button class = "update" type="submit">-->
+<!--            Confirm-->
+<!--        </button>-->
+<!--    </form>-->
+
+<!--</div>-->
+
+
+

@@ -1,0 +1,89 @@
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+        <li><a href="/contact-us">
+            <i class="fas fa-info-circle"></i>
+            Contact Us
+            </a>
+        </li>
+        <li><a href="/myfolio">
+            <i class="fas fa-address-card"></i>
+            myFolio
+            </a>
+        </li>
+        <li><a href="/discussion-board">
+            <i class="fas fa-comments"></i>
+            Forum
+            </a>
+        </li>
+        <li class="dropdown"><a class="dropbtn" href="/user">
+            <i class="fas fa-user-cog"></i>
+            User Center</a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">Account Management</a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    console.log(cookiename.value);
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+        <li><a href="/">
+            <i class="fas fa-home"></i>
+            Home
+            </a>
+        </li>
+        <img class="circle" src="../resource/default.jpg" width="40" height="40">
+        <li class = "username">
+            <a>Not logged in</a>
+        </li>
+    </ul>
+</div>
+
+
+<section class="login">
+    <br><br>
+    <form action="/user/login" method="post">
+        <label_login>Username</label_login><br>
+        <input type="text" name="accountName" value="" id="inputUsername" placeholder="Please enter your username"/>
+        <br>
+        <br>
+        <label_login>Password</label_login>
+        <br>
+        <input type="password" name="password" value="" id="inputPassword" placeholder="Please enter your password"/>
+        <br>
+        <monkey style="margin-left: 230px; margin-top: -33px"><hide class="showpw" id="pw" onclick="showpw()" type =
+                button>&#128584;</hide></monkey>
+
+        <div>
+            <article class="message">
+                <div> {{message}} </div>
+            </article>
+        </div>
+        <br>
+        <article><button type="submit">Login</button></article>
+        <br>
+
+        <article>Don't have an account?&#129488;
+            <a href = "/user/sign-up"><u>Sign up now!</u></a></article>
+    </form>
+    <script>
+        function showpw(){
+            if(document.getElementById("inputPassword").valueOf().type != "text") {
+                document.getElementById("inputPassword").valueOf().type = "text";
+                document.getElementById("pw").innerText = "\uD83D\uDE4A";
+            }else{
+                document.getElementById("inputPassword").valueOf().type = "password";
+                document.getElementById("pw").innerText = "\uD83D\uDE48";
+            }
+        }
+    </script>
+</section>
