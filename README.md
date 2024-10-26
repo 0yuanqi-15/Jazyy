@@ -37,7 +37,7 @@ To get started with Jazyy, follow these steps:
 
 ## License
 
-Include information about the project's license here.
+This project is not licensed for distribution or modification. University students are permitted to reference this repository for educational purposes only. Copying or reproducing any part of this project without proper attribution may lead to serious plagiarism issues and academic consequences. Please ensure that any use of this material complies with your institution's academic integrity policies.
 
 ## Contributing
 
